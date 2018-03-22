@@ -26,10 +26,9 @@ AlbumTitle -> TitleWQ<fw> interp(Album.Name::not_norm);
 //PostW -> "год"<gram="род"> ;//| "экземпляр";
 //S -> Premiere (Word) Date interp (Album.Date::not_norm);
 
-//Name -> Word<h-reg1, ~fw> Word<h-reg1>*; 
-//SingerPref -> 'альбом' | 'группа'<gram="род"> | 'музыкант'<gram="род"> | 'певица'<gram="род"> ;
-
-//Singer -> SingerPref NP* Name interp (Album.Singer);
+Name -> Word<h-reg1, ~fw> Word<h-reg1>*; 
+SingerPref -> 'альбом' | 'группа'<gram="род"> | 'музыкант'<gram="род"> | 'певица'<gram="род"> | 'рэпер'<gram="род">;
+Singer -> SingerPref NP* Name interp (Album.Singer);
 
 //Lang -> "англ" | "рус" | "англ." | "рус.";
 //Translate -> LBracket Word* Lang Hyphen* Title interp (Album.TranslateName::not_norm) RBracket;
@@ -39,5 +38,5 @@ AlbumTitle -> TitleWQ<fw> interp(Album.Name::not_norm);
 //S -> AlbumTitle Hyphen* Word* Singer;
 //S -> AlbumTitle InBrackets Hyphen* Word* Singer;
 //S -> Singer;
-S -> AlbumTitle Word* Hyphen;
-S -> AlbumTitle LBracket AnyWord* (Hyphen) (AnyWord*) RBracket Hyphen;
+S -> AlbumTitle Word* Hyphen AnyWord* Singer;
+S -> AlbumTitle LBracket AnyWord* (Hyphen) (AnyWord*) RBracket Hyphen AnyWord* Singer;
