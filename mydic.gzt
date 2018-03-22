@@ -1,0 +1,30 @@
+encoding "utf8";
+
+import "base.proto";
+import "articles_base.proto";
+
+import "facttypes.proto";
+
+TAuxDicArticle "альбом"
+{
+    key = { "tomita:album.cxx" type=CUSTOM }
+}
+
+TAuxDicArticle "даты"
+{
+    key = { "tomita:dates.cxx" type=CUSTOM }
+}
+
+TAbbreviation "рус."
+{
+	key = {"abbreviation_рус." type = CUSTOM }
+	text = "рус."
+	type = NewerEOS
+}
+
+TAbbreviation "англ."
+{
+	key = {"abbreviation_англ." type = CUSTOM }
+	text = "англ."
+	type = NewerEOS
+}
